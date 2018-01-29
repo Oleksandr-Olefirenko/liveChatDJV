@@ -2,10 +2,9 @@ from django.db import models
 
 # Create your models here.
 from uuid import uuid4
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
-#User = get_user_model()
-
+User = get_user_model()
 
 def deserialize_user(user):
     """Deserialize user instance to JSON."""

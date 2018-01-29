@@ -1,12 +1,13 @@
+from django.shortcuts import render
+
+# Create your views here.
 from django.contrib.auth import get_user_model
 from .models import (
     ChatSession, ChatSessionMember, ChatSessionMessage, deserialize_user
 )
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions
-
 
 class ChatSessionView(APIView):
     """Manage Chat sessions."""
@@ -52,7 +53,6 @@ class ChatSessionView(APIView):
             'message': '%s joined that chat' % user.username,
             'user': deserialize_user(user)
         })
-
 
 class ChatSessionMessageView(APIView):
     """Create/Get Chat session messages."""
